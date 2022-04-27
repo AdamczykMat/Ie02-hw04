@@ -124,14 +124,15 @@ int main() {
         sf::Vector2i mouse_pos;
 
         if(event.type == sf::Event::KeyPressed)
+        {
             pressed = event.key.code;
+            rectangle_inh.moveInDirection(elapsed,pressed);
+        }
 
         if(event.type == sf::Event::MouseButtonPressed)
             if(event.mouseButton.button == sf::Mouse::Left)
                  mouse_pos = sf::Mouse::getPosition(window);
 
-
-        rectangle_inh.moveInDirection(elapsed,pressed);
         if(rectangle_inh.isClicked(mouse_pos))
             rectangle_inh.setFillColor(sf::Color(rand() % 256,rand() % 256,rand() % 256));
 
